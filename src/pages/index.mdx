@@ -30,177 +30,102 @@ import robot_exp from "../assets/figure_robot.png";
 import demo_video from "../assets/demo_robospatial.mp4"
 
 
+import fig_network from "../assets/Network.png";
+import fig_table from "../assets/result.png";
+import fig_example from "../assets/Example_results.png";
+import example from "../assets/Example.png";
+import fig_data from "../assets/Data.png";
+
+
 
 <Header
   title={frontmatter.title}
   authors={[
     {
-      name: "Chan Hee Song",
-      url: "https://chanh.ee",
-      institution: "The Ohio State University",
-      notes: ["*", "+"],
+      name: "Trinh Vuong",
+      url: "https://www.linkedin.com/in/trinh-vuong-218812193/",
+      institution: "Korea University",
     },
     {
-      name: "Valts Blukis",
-      institution: "NVIDIA",
-      url: "https://research.nvidia.com/person/valts-blukis",
-      notes: [],
-    },
-    {
-      name: "Jonathan Tremblay",
-      institution: "NVIDIA",
-      url: "https://research.nvidia.com/person/jonathan-tremblay",
-      notes: [],
-    },
-    {
-      name: "Stephen Tyree",
-      institution: "NVIDIA",
-      url: "https://research.nvidia.com/person/stephen-tyree",
-    },
-    {
-      name: "Yu Su",
-      url: "https://ysu1989.github.io/",
-      institution: "The Ohio State University",
-    },
-    {
-      name: "Stan Birchfield",
-      url: "https://sbirchfield.github.io/",
-      institution: "NVIDIA",
+      name: "Jin Tae Kwak",
+      url: "https://www.kwaklab.net/PI.html",
+      institution: "Korea University",
     },
   ]}
-  conference="CVPR 2025 Oral (0.74%)"
+  conference="Arxiv 2025"
   notes={[
     {
-      symbol: "*",
-      text: "Work partly done during Nvidia internship",
-    },
-    {
-      symbol: "+",
-      text: "Contact: song.1855@osu.edu",
+      text: "Contact: jkwak@korea.ac.kr",
     },
   ]}
   links={[
     {
-      name: "arXiv",
-      url: "https://arxiv.org/abs/2411.16537",
-      icon: "fa-solid:file-pdf",
-    },
-    {
       name: "Code",
-      url: "https://github.com/NVlabs/RoboSpatial",
-      icon: "mdi:github",
-      disabled: false,
+      url: "https://github.com/trinhvg/VideoPath-LLaVA",
+      icon: "ri:github-line",
     },
     {
-      name: "Benchmark",
-      url: "https://huggingface.co/datasets/chanhee-luke/RoboSpatial-Home",
-      icon: "mdi:database",
-      disabled: false
+      name: "arXiv",
+      url: "https://arxiv.org/abs/2505.04192",
+      icon: "academicons:arxiv",
     },
+    {
+      name: "Benchmark (Coming Soon)",
+      url: "",
+    }
   ]}
   />
 
+## Abstract
 <div className="center-text">
-  **TL;DR** A large-scale 2D/3D dataset of real indoor/tabletop environments for spatial reasoning in robotics.
+We present VideoPath-LLaVA, the first large multimodal model (LMM) in computational pathology that integrates three distinct image scenarios, single patch images, automatically keyframe-extracted clips, and manually segmented video pathology images, to mimic the natural diagnostic process of pathologists. By generating detailed histological descriptions and culminating in a definitive sign-out diagnosis, VideoPath-LLaVA bridges visual narratives with diagnostic reasoning.
+Central to our approach is the VideoPath-Instruct dataset, comprising 4278 video and diagnosis-specific chain-of-thought instructional pairs sourced from educational histopathology videos on YouTube.
+Although high-quality data is critical for enhancing diagnostic reasoning, its creation is time-intensive and limited in volume. To overcome this challenge, we transfer knowledge from existing single-image instruction datasets to train on weakly annotated, keyframe-extracted clips, followed by fine-tuning on manually segmented videos. VideoPath-LLaVA establishes a new benchmark in pathology video analysis and offers a promising foundation for future AI systems that support clinical decision-making through integrated visual and diagnostic reasoning.
 </div>
 
-<Video source={demo_video} />
+
 
 
 <HighlightedSection>
 
 ## Overview
 
-{/* **TL;DR** 1) A new training dataset and benchmark, **RoboSpatial** and **RoboSpatial-Home**, comprising images and 3D scans paired with spatial questions and answers, designed for robotics. 2) **RoboSpatial** trained model outperforms prior SOTA VLMs on natural language-specified robot manipulation tasks and indoor spatial scene question answering. */}
-
-Spatial understanding is essential for robots to perceive, reason about, and interact with their environments. However, current visual language models often rely on general-purpose image datasets that lack robust spatial scene understanding and reference frame comprehension (ego-, world-, or object-centric). To address this gap, we introduce **RoboSpatial**, a large-scale dataset of **real indoor and tabletop environments** captured via egocentric images and 3D scans. RoboSpatial provides **1M images, 5k 3D scans, and 3M annotated spatial relationships**, enabling both 2D and 3D spatial reasoning. Models trained on RoboSpatial outperform baselines on tasks including spatial affordance prediction, spatial relationship prediction, and robot manipulation.
+We present VideoPath-LLaVA, the first large multimodal model (LMM) in computational pathology that integrates three distinct image scenarios, single patch images, automatically keyframe-extracted clips, and manually segmented video pathology images, to mimic the natural diagnostic process of pathologists. By generating detailed histological descriptions and culminating in a definitive sign-out diagnosis, VideoPath-LLaVA bridges visual narratives with diagnostic reasoning.
+Central to our approach is the VideoPath-Instruct dataset, comprising 4278 video and diagnosis-specific chain-of-thought instructional pairs sourced from educational histopathology videos on YouTube.
+Although high-quality data is critical for enhancing diagnostic reasoning, its creation is time-intensive and limited in volume. To overcome this challenge, we transfer knowledge from existing single-image instruction datasets to train on weakly annotated, keyframe-extracted clips, followed by fine-tuning on manually segmented videos. VideoPath-LLaVA establishes a new benchmark in pathology video analysis and offers a promising foundation for future AI systems that support clinical decision-making through integrated visual and diagnostic reasoning.
 
 </HighlightedSection>
 
 
 
+## Model
 
-{/* ## Two columns
-
-Use the two columns component to display two columns of content. In this example, the first column contains a figure with a YouTube video and the second column contains a figure with a custom [React](https://react.dev/) component. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
-
-<TwoColumns>
-  <Figure slot="left" caption="Take a look at this YouTube video.">
-    <YouTubeVideo videoId="wjZofJX0v4M" />
-  </Figure>
-  <Figure slot="right" caption="Now look at this Gaussian Splat, rendered with a React component.">
-    <Splat client:idle />
-  </Figure>
-</TwoColumns> */}
-
-## Approach
-
-<Figure
-    caption="We automatically generate spatial relationship annotations from existing datasets with 3D point clouds, egocentric images, and 3D bounding box annotations. We create question/answer pairs covering three classes of spatial relationships, three spatial reference frames, and both binary (yes/no) and numeric (e.g. 2D image points) answers. From 1M images and 5k 3D scans, we generate over 3M spatial question/answer pairs."
-  >
-    <Image source={fig2} altText="An overview of RoboSpatial Dataset." />
+VideoPath-LLaVa model
+<Figure>
+  <Image slot="figure" source={fig_network} altText="Diagram of the transformer deep learning architecture."  />
+  <span slot="caption">Overview of the VideoPath-LLaVA model architecture and its freezing and tuning strategy at each stage. The model comprises three main components: a vision encoder (ViT), a projector, and a large language decoder (LLM).</span>
 </Figure>
 
 
-## Application Example
+## Data Preparation
 
-
-<Figure
-    caption="An illustration of a model trained on RoboSpatial being used to solve a manipulation task using spatial reasoning."
-  >
-    <Image source={fig1} altText="An illustration of a model trained on RoboSpatial being used to solve a manipulation task using spatial reasoning." />
+<Figure>
+  <Image slot="figure" source={fig_data} altText="Data Preparation." />
+  <span slot="caption"> Data Preparation </span>
 </Figure>
 
 
-## Evaluation Results
+## Examples
 
-### Spatial QA
-
-<Figure
-    caption="In-domain (RoboSpatial-Val, top) and out-of-domain (RoboSpatial-Home, BLINK, middle and bottom) results for RoboSpatial-trained models. Two models shown: SL (SpaceLLaVA) and RP (RoboPoint); the -FT suffix indicates fine-tuning on RoboSpatial. Correct answers in green. All images except bottom-right in the out-of-domain rows are from RoboSpatial-Home."
-  >
-    <Image source={fig3} altText="Qualitative Results of RoboSpatial-trained models." />
+<Figure>
+  <Image slot="figure" source={fig_example} altText="Diagram of the transformer deep learning architecture." />
+  <span slot="caption">Comparison of VideoPath-LLaVA and GPT-4o in the visual reasoning task for diagnosing high-grade serous carcinoma. While both models correctly identify serous carcinoma, GPT-4o fails to recognize key features such as nuclear atypia and desmoplastic stroma, which are critical for assessing tumor invasiveness, leading to a less
+precise grading of malignancy.</span>
 </Figure>
 
-<Table caption="Performance of RoboSpatial-trained models on four spatial reasoning benchmarks.">
-| Model                       | RoboSpatial-Val | RoboSpatial-Home | BLINK-Spatial | SpatialBench-Position |
-|:----------------------------|:---------------:|:-----------------:|:-------------:|:------------:|
-| **Open-source**             |                 |                  |               |              |
-| *--2D--*                    |                 |                  |               |              |
-| LLaVA-NeXT (8B)             | 30.3            | 46.3             | 71.8          |    55.9      |
-| + RoboSpatial               | 60.5            | 59.6             | **79.0**      |    **70.6**      |
-| RoboPoint (13B)             | 38.9            | 53.4             | 63.6          |    44.1      |
-| + RoboSpatial               | 70.6            | **63.4**         | 70.6          |    64.7      |
-| *--3D--*                    |                 |                  |               |              |
-| Embodied Generalist (7B)    | 42.8            | 29.8             | N/A           |    N/A       |
-| + RoboSpatial               | **71.9**        | 43.8             | N/A           |    N/A       |
-| **Baselines**               |                 |                  |               |              |
-| Molmo (7B)                  | 50.1            | 25.6             | 67.1          |    55.9      |
-| GPT-4o                      | 50.8            | 47.0             | 76.2          |    **70.6**      |
 
-</Table>
 
-### Robot Manipulation
 
-<Figure
-    caption="Robot experiments: the red dot shows the model output (if not present, the model failed to provide a valid point in the image);  green dots are used to show when a model outputs multiple points. The robot motion generator, cuRobo, is used to grasp the item referenced by the generated point. The spatial- prefix indicates model trained with RoboSpatial."
-  >
-    <Image source={robot_exp} altText="Robot experiment results." />
-</Figure>
-
-<Table caption="Task success rate for robot manipulation.">
-| Model                        | Success Rate (%) |
-|:----------------------------|:---------------:|
-| **Open-source**              |                 |
-| LLaVA-NeXT (8B)              | 23.7           |
-| + RoboSpatial                | **52.6**    |
-| **Baselines** |            |
-| Molmo (7B)                  | 43.8           |
-| GPT-4o                   | 46.9           |
-</Table>
-
-{/* | RoboPoint                 | 44.7           |
-| + RoboSpatial                | 46.2        | */}
 
 ## Results
 
