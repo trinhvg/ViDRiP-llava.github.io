@@ -1,0 +1,18 @@
+---
+
+interface Props {
+  caption: string;
+}
+
+const { caption } = Astro.props;
+---
+
+
+<div class="px-6 w-full max-w-[60rem] mx-auto overflow-x-auto">
+  <table class="table-auto mx-auto">
+    <slot />
+    <caption>
+      {caption}
+    </caption>
+  </table>
+</div>
