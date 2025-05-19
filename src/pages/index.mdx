@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Layout.astro
-title: "VideoPath-LLaVA: Pathology Diagnostic Reasoning Through Video Instruction Tuning"
-description: Webpage for VideoPath-LLaVA
+title: "ViDRiP-LLaVA: A Dataset and Benchmark for Diagnostic Reasoning from Pathology Videos"
+description: Webpage for ViDRiP-LLaVA
 favicon: logo.ico
 # thumbnail: screenshot.png
 ---
@@ -60,7 +60,7 @@ import fig_data from "../assets/Data.png";
   links={[
     {
       name: "Code",
-      url: "https://github.com/trinhvg/VideoPath-LLaVA",
+      url: "https://github.com/trinhvg/ViDRiP-LLaVA",
       icon: "mdi:github",
     },
     {
@@ -81,9 +81,9 @@ import fig_data from "../assets/Data.png";
 
 ## Abstract
 
-We present VideoPath-LLaVA, the first large multimodal model (LMM) in computational pathology that integrates three distinct image scenarios, single patch images, automatically keyframe-extracted clips, and manually segmented video pathology images, to mimic the natural diagnostic process of pathologists. By generating detailed histological descriptions and culminating in a definitive sign-out diagnosis, VideoPath-LLaVA bridges visual narratives with diagnostic reasoning.
-Central to our approach is the VideoPath-Instruct dataset, comprising 4278 video and diagnosis-specific chain-of-thought instructional pairs sourced from educational histopathology videos on YouTube.
-Although high-quality data is critical for enhancing diagnostic reasoning, its creation is time-intensive and limited in volume. To overcome this challenge, we transfer knowledge from existing single-image instruction datasets to train on weakly annotated, keyframe-extracted clips, followed by fine-tuning on manually segmented videos. VideoPath-LLaVA establishes a new benchmark in pathology video analysis and offers a promising foundation for future AI systems that support clinical decision-making through integrated visual and diagnostic reasoning.
+We present ViDRiP-LLaVA, the first large multimodal model (LMM) in computational pathology that integrates three distinct image scenarios, single patch images, automatically keyframe-extracted clips, and manually segmented video pathology images, to mimic the natural diagnostic process of pathologists. By generating detailed histological descriptions and culminating in a definitive sign-out diagnosis, ViDRiP-LLaVA bridges visual narratives with diagnostic reasoning.
+Central to our approach is the ViDRiP-Instruct dataset, comprising 4278 video and diagnosis-specific chain-of-thought instructional pairs sourced from educational histopathology videos on YouTube.
+Although high-quality data is critical for enhancing diagnostic reasoning, its creation is time-intensive and limited in volume. To overcome this challenge, we transfer knowledge from existing single-image instruction datasets to train on weakly annotated, keyframe-extracted clips, followed by fine-tuning on manually segmented videos. ViDRiP-LLaVA establishes a new benchmark in pathology video analysis and offers a promising foundation for future AI systems that support clinical decision-making through integrated visual and diagnostic reasoning.
 
 </HighlightedSection>
 
@@ -91,12 +91,12 @@ Although high-quality data is critical for enhancing diagnostic reasoning, its c
 
 ## Model
 
-VideoPath-LLaVa model
+ViDRiP-LLaVa model
 <Figure
-    caption="Overview of the VideoPath-LLaVA model architecture and its freezing and tuning strategy at each stage.
+    caption="Overview of the ViDRiP-LLaVA model architecture and its freezing and tuning strategy at each stage.
       The model comprises three main components: a vision encoder (ViT), a projector, and a large language decoder (LLM)."
   >
-    <Image source={fig_network} altText="VideoPath-LLaVA model." />
+    <Image source={fig_network} altText="ViDRiP-LLaVA model." />
 </Figure>
 
 
@@ -112,10 +112,10 @@ VideoPath-LLaVa model
 ## Examples
 
 <Figure
-    caption="Comparison of VideoPath-LLaVA and GPT-4o in the visual reasoning task for diagnosing high-grade serous carcinoma. While both models correctly identify serous carcinoma, GPT-4o fails to recognize key features such as nuclear atypia and desmoplastic stroma, which are critical for assessing tumor invasiveness, leading to a less
+    caption="Comparison of ViDRiP-LLaVA and GPT-4o in the visual reasoning task for diagnosing high-grade serous carcinoma. While both models correctly identify serous carcinoma, GPT-4o fails to recognize key features such as nuclear atypia and desmoplastic stroma, which are critical for assessing tumor invasiveness, leading to a less
 precise grading of malignancy."
   >
-    <Image source={fig_example} altText="Comparison of VideoPath-LLaVA and GPT-4o." />
+    <Image source={fig_example} altText="Comparison of ViDRiP-LLaVA and GPT-4o." />
 </Figure>
 
 
@@ -123,21 +123,13 @@ precise grading of malignancy."
 ## Results
 
 <Figure
-    caption="Performance benchmarking of text generation models on VideoPath-Instruct."
+    caption="Performance benchmarking of text generation models on ViDRiP-Instruct."
   >
-    <Image source={fig_table} altText="Performance benchmarking of text generation models on VideoPath-Instruct." />
+    <Image source={fig_table} altText="Performance benchmarking of text generation models on ViDRiP-Instruct." />
 </Figure>
 
 ## BibTeX Citation
 
 ```bibtex
-@misc{vuong2025videopathllavapathologydiagnosticreasoning,
-      title={VideoPath-LLaVA: Pathology Diagnostic Reasoning Through Video Instruction Tuning},
-      author={Trinh T.L. Vuong and Jin Tae Kwak},
-      year={2025},
-      eprint={2505.04192},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2505.04192},
-}
+Comming soon
 ```
